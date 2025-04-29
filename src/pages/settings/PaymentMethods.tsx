@@ -2,7 +2,7 @@
 import MobileLayout from "@/components/layout/MobileLayout";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { ArrowLeft, CreditCard, Plus, Trash2, Check, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, CreditCard, Plus, Trash2, Check, CheckCircle2, Info } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
