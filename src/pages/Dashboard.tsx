@@ -16,6 +16,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { ChartContainer } from "@/components/ui/chart";
 import { PieChart as ReChartPie, Pie, Cell } from "recharts";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const Dashboard = () => {
 	// Sample user data - in a real app, this would come from an API
@@ -58,11 +59,15 @@ const Dashboard = () => {
 			<div className="space-y-5 pb-4">
 				{/* User Header with avatar and greeting */}
 				<div className="flex items-center space-x-3 py-3">
-					<img
-						src={userData.avatar}
-						alt="User Profile"
-						className="w-12 h-12 rounded-full object-cover border-2 border-bayelsa-teal"
-					/>
+					<Avatar className="w-12 h-12 rounded-full object-cover border-2 border-bayelsa-teal">
+						{/* <AvatarImage
+							src={userData.avatar || ""}
+							alt="Organization logo"
+						/> */}
+						<AvatarFallback className="bg-secondary text-bayelsa-teal text-2xl">
+							{userData.name.substring(0, 2).toUpperCase()}
+						</AvatarFallback>
+					</Avatar>
 					<div>
 						<p className="text-sm text-bayelsa-gray">
 							Welcome back,
