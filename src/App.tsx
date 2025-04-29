@@ -12,6 +12,10 @@ import Dashboard from "./pages/Dashboard";
 import Usage from "./pages/Usage";
 import Notifications from "./pages/Notifications";
 import Settings from "./pages/Settings";
+import PersonalInformation from "./pages/settings/PersonalInformation";
+import Security from "./pages/settings/Security";
+import NotificationPreferences from "./pages/settings/NotificationPreferences";
+import PaymentMethods from "./pages/settings/PaymentMethods";
 import Recharge from "./pages/Recharge";
 import ReportOutage from "./pages/ReportOutage";
 import NotFound from "./pages/NotFound";
@@ -31,6 +35,10 @@ const App = () => (
             <Route path="/usage" element={<Usage />} />
             <Route path="/notifications" element={<Notifications />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/settings/personal" element={<PersonalInformation />} />
+            <Route path="/settings/security" element={<Security />} />
+            <Route path="/settings/notifications" element={<NotificationPreferences />} />
+            <Route path="/settings/payment" element={<PaymentMethods />} />
             <Route path="/recharge" element={<Recharge />} />
             <Route path="/report-outage" element={<ReportOutage />} />
             <Route path="*" element={<NotFound />} />
