@@ -20,6 +20,12 @@ import Recharge from "./pages/Recharge";
 import ReportOutage from "./pages/ReportOutage";
 import NotFound from "./pages/NotFound";
 
+// Onboarding Pages
+import OnboardingPage from "./pages/onboarding/Onboarding";
+import WelcomeOnboarding from "./pages/onboarding/Welcome";
+import LoginPage from "./pages/onboarding/Login";
+import SignupPage from "./pages/onboarding/Signup";
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -30,7 +36,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Navigate to="/welcome" />} />
+            <Route path="/" element={<Navigate to="/onboarding" />} />
             <Route path="/welcome" element={<Welcome />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/usage" element={<Usage />} />
@@ -42,6 +48,13 @@ const App = () => (
             <Route path="/settings/payment" element={<PaymentMethods />} />
             <Route path="/recharge" element={<Recharge />} />
             <Route path="/report-outage" element={<ReportOutage />} />
+            
+            {/* Onboarding Routes */}
+            <Route path="/onboarding" element={<OnboardingPage />} />
+            <Route path="/onboarding/welcome" element={<WelcomeOnboarding />} />
+            <Route path="/onboarding/login" element={<LoginPage />} />
+            <Route path="/onboarding/signup" element={<SignupPage />} />
+            
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

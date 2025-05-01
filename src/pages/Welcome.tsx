@@ -1,3 +1,4 @@
+
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MobileLayout from "@/components/layout/MobileLayout";
@@ -7,7 +8,7 @@ const Welcome = () => {
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
-			navigate("/dashboard");
+			navigate("/onboarding");
 		}, 3500); // Increased time slightly to allow animation to complete
 
 		return () => clearTimeout(timer);
