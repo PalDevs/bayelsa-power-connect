@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -18,6 +19,7 @@ import PaymentMethods from "./pages/settings/PaymentMethods";
 import Recharge from "./pages/Recharge";
 import ReportOutage from "./pages/ReportOutage";
 import NotFound from "./pages/NotFound";
+import Transactions from "./pages/Transactions";
 
 // Onboarding Pages
 import OnboardingPage from "./pages/onboarding/Onboarding";
@@ -43,6 +45,7 @@ const App = () => (
 							path="/notifications"
 							element={<Notifications />}
 						/>
+						<Route path="/transactions" element={<Transactions />} />
 						<Route path="/settings" element={<Settings />} />
 						<Route
 							path="/settings/personal"
