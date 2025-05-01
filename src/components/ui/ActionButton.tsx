@@ -23,7 +23,8 @@ const ActionButton = ({
 						variant === "primary",
 					"border-2 border-bayelsa-deep-blue text-bayelsa-deep-blue hover:bg-bayelsa-deep-blue hover:text-white":
 						variant === "outline",
-					"w-full dark:bg-bayelsa-deep-blue dark:text-white": fullWidth,
+					"w-full dark:bg-bayelsa-deep-blue dark:text-white":
+						fullWidth,
 				},
 				className
 			)}
