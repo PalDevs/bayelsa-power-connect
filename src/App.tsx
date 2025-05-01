@@ -17,6 +17,7 @@ import Security from "./pages/settings/Security";
 import NotificationPreferences from "./pages/settings/NotificationPreferences";
 import PaymentMethods from "./pages/settings/PaymentMethods";
 import Recharge from "./pages/Recharge";
+import OrderSummary from "./pages/OrderSummary";
 import ReportOutage from "./pages/ReportOutage";
 import NotFound from "./pages/NotFound";
 import Transactions from "./pages/Transactions";
@@ -64,6 +65,7 @@ const App = () => (
 							element={<PaymentMethods />}
 						/>
 						<Route path="/recharge" element={<Recharge />} />
+						<Route path="/order-summary" element={<OrderSummary />} />
 						<Route
 							path="/report-outage"
 							element={<ReportOutage />}
