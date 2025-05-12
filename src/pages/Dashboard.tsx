@@ -52,24 +52,53 @@ const Dashboard = () => {
 		usageTrend: "down", // 'up' or 'down'
 		walletBalance: "******", // Hidden by default
 		transactions: [
-			{ date: "2025-05-01", time: "1:52 pm", units: 500, amount: 250, type: "recharge" },
+			{
+				date: "2025-05-01",
+				time: "1:52 pm",
+				units: 500,
+				amount: 250,
+				type: "recharge",
+			},
 			{ date: "2025-04-12", units: 1000, amount: 500, type: "recharge" },
 			{ date: "2025-03-24", units: 1200, amount: 500, type: "recharge" },
 			{ date: "2025-03-11", units: 200, amount: 100, type: "recharge" },
 			{ date: "2025-01-28", units: 400, amount: 200, type: "recharge" },
 		],
 		walletFunding: [
-			{ date: "2025-05-01", time: "1:52 pm", account: "JOHN DOE 234***5678 A45", amount: 2000 },
-			{ date: "2025-04-12", account: "JOHN DOE 234***5678 A45", amount: 500 },
-			{ date: "2025-03-24", account: "JOHN DOE 234***5678 A45", amount: 500 },
-			{ date: "2025-03-11", account: "JOHN DOE 234***5678 A45", amount: 1000 },
-			{ date: "2025-01-28", account: "JOHN DOE 234***5678 A45", amount: 20000 },
-		]
+			{
+				date: "2025-05-01",
+				time: "1:52 pm",
+				account: "JOHN DOE 234***5678 A45",
+				amount: 2000,
+			},
+			{
+				date: "2025-04-12",
+				account: "JOHN DOE 234***5678 A45",
+				amount: 500,
+			},
+			{
+				date: "2025-03-24",
+				account: "JOHN DOE 234***5678 A45",
+				amount: 500,
+			},
+			{
+				date: "2025-03-11",
+				account: "JOHN DOE 234***5678 A45",
+				amount: 1000,
+			},
+			{
+				date: "2025-01-28",
+				account: "JOHN DOE 234***5678 A45",
+				amount: 20000,
+			},
+		],
 	});
 
 	const [showWalletBalance, setShowWalletBalance] = useState(false);
 	const [showTransactions, setShowTransactions] = useState(false);
-	const [activeTransactionTab, setActiveTransactionTab] = useState<"recharge" | "funding">("recharge");
+	const [activeTransactionTab, setActiveTransactionTab] = useState<
+		"recharge" | "funding"
+	>("recharge");
 
 	// Colors for the pie chart
 	const COLORS = ["#47B8B8", "#F1F0FB"];
@@ -106,7 +135,9 @@ const Dashboard = () => {
 							<p className="text-sm text-bayelsa-gray">
 								Welcome back,
 							</p>
-							<h1 className="text-xl font-bold">{userData.name}</h1>
+							<h1 className="text-xl font-bold">
+								{userData.name}
+							</h1>
 						</div>
 					</div>
 					<div className="relative">
@@ -189,20 +220,29 @@ const Dashboard = () => {
 					<CardContent className="p-4">
 						<div className="flex justify-between items-center">
 							<div className="flex items-center space-x-2">
-								<Wallet size={24} className="text-bayelsa-teal" />
-								<h3 className="font-bold text-lg">Wallet Balance</h3>
-								<Button 
-									variant="ghost" 
-									size="icon" 
-									className="h-6 w-6 rounded-full text-bayelsa-teal p-1" 
+								<Wallet
+									size={24}
+									className="text-bayelsa-teal"
+								/>
+								<h3 className="font-bold text-lg">
+									Wallet Balance
+								</h3>
+								<Button
+									variant="ghost"
+									size="icon"
+									className="h-6 w-6 rounded-full text-bayelsa-teal p-1"
 									onClick={toggleWalletBalance}
 								>
-									{showWalletBalance ? <EyeOff size={16} /> : <Eye size={16} />}
+									{showWalletBalance ? (
+										<EyeOff size={16} />
+									) : (
+										<Eye size={16} />
+									)}
 								</Button>
 							</div>
-							<Button 
-								size="sm" 
-								variant="secondary" 
+							<Button
+								size="sm"
+								variant="secondary"
 								className="bg-white text-bayelsa-deep-blue hover:bg-gray-100"
 								onClick={() => navigate("/recharge")}
 							>
@@ -218,48 +258,89 @@ const Dashboard = () => {
 				</Card>
 
 				{/* Quick Recharge */}
-				<Link to="/recharge">
-					<ActionButton
-						fullWidth
-						className="flex items-center justify-center space-x-2"
-					>
-						<Zap size={18} />
-						<span>Recharge</span>
-					</ActionButton>
-				</Link>
+				<div>
+					<Link to="/recharge">
+						<ActionButton
+							fullWidth
+							className="flex items-center justify-center space-x-2"
+						>
+							<Zap size={18} />
+							<span>Recharge</span>
+						</ActionButton>
+					</Link>
+				</div>
 
 				{/* Buy Again Section */}
 				<div className="mt-4">
 					<div className="flex justify-between items-center mb-3">
-						<h3 className="font-bold text-bayelsa-deep-blue">Buy Again</h3>
-						<Button variant="ghost" size="sm" className="p-0 h-auto" onClick={toggleTransactions}>
-							{showTransactions ? <EyeOff size={16} /> : <Eye size={16} />}
+						<h3 className="font-bold text-bayelsa-deep-blue">
+							Buy Again
+						</h3>
+						<Button
+							variant="ghost"
+							size="sm"
+							className="p-0 h-auto"
+							onClick={toggleTransactions}
+						>
+							{showTransactions ? (
+								<EyeOff size={16} />
+							) : (
+								<Eye size={16} />
+							)}
 						</Button>
 					</div>
 
 					<div className="space-y-3">
 						<Card className="border border-gray-200 hover:shadow-md transition-all">
-							<Link to="/recharge" className="flex items-center justify-between p-4">
+							<Link
+								to="/recharge"
+								className="flex items-center justify-between p-4"
+							>
 								<div>
-									<span className="text-lg">200 Units</span> / <span className="text-gray-500">₦6,500.00</span>
+									<span className="text-lg">200 Units</span> /{" "}
+									<span className="text-gray-500">
+										₦6,500.00
+									</span>
 								</div>
-								<ChevronRight size={20} className="text-gray-400" />
+								<ChevronRight
+									size={20}
+									className="text-gray-400"
+								/>
 							</Link>
 						</Card>
 						<Card className="border border-gray-200 hover:shadow-md transition-all">
-							<Link to="/recharge" className="flex items-center justify-between p-4">
+							<Link
+								to="/recharge"
+								className="flex items-center justify-between p-4"
+							>
 								<div>
-									<span className="text-lg">1,000 Units</span> / <span className="text-gray-500">₦32,000.00</span>
+									<span className="text-lg">1,000 Units</span>{" "}
+									/{" "}
+									<span className="text-gray-500">
+										₦32,000.00
+									</span>
 								</div>
-								<ChevronRight size={20} className="text-gray-400" />
+								<ChevronRight
+									size={20}
+									className="text-gray-400"
+								/>
 							</Link>
 						</Card>
 						<Card className="border border-gray-200 hover:shadow-md transition-all">
-							<Link to="/recharge" className="flex items-center justify-between p-4">
+							<Link
+								to="/recharge"
+								className="flex items-center justify-between p-4"
+							>
 								<div>
-									<span className="text-lg">50 Units</span> / <span className="text-gray-500">₦1,600.00</span>
+									<span className="text-lg">50 Units</span> /{" "}
+									<span className="text-gray-500">
+										₦1,600.00
+									</span>
 								</div>
-								<ChevronRight size={20} className="text-gray-400" />
+								<ChevronRight
+									size={20}
+									className="text-gray-400"
+								/>
 							</Link>
 						</Card>
 					</div>
@@ -271,72 +352,136 @@ const Dashboard = () => {
 						<Card>
 							<CardContent className="p-4">
 								<div className="flex justify-between items-center mb-3">
-									<h3 className="font-bold text-bayelsa-deep-blue">Transaction History</h3>
-									<Link to="/transactions" className="text-sm text-bayelsa-teal">
+									<h3 className="font-bold text-bayelsa-deep-blue">
+										Transaction History
+									</h3>
+									<Link
+										to="/transactions"
+										className="text-sm text-bayelsa-teal"
+									>
 										See All
 									</Link>
 								</div>
 
-								<Tabs defaultValue="recharge" onValueChange={(value) => setActiveTransactionTab(value as "recharge" | "funding")}>
+								<Tabs
+									defaultValue="recharge"
+									onValueChange={(value) =>
+										setActiveTransactionTab(
+											value as "recharge" | "funding"
+										)
+									}
+								>
 									<TabsList className="grid w-full grid-cols-2 mb-4">
-										<TabsTrigger value="recharge">Recharge</TabsTrigger>
-										<TabsTrigger value="funding">Wallet Funding</TabsTrigger>
+										<TabsTrigger value="recharge">
+											Recharge
+										</TabsTrigger>
+										<TabsTrigger value="funding">
+											Wallet Funding
+										</TabsTrigger>
 									</TabsList>
-									
+
 									<TabsContent value="recharge">
 										{userData.transactions.length > 0 ? (
 											<div className="space-y-3 max-h-64 overflow-y-auto">
-												{userData.transactions.slice(0, 3).map((transaction, index) => (
-													<div key={index} className="border-b pb-2 last:border-0">
-														<div className="flex justify-between items-start">
-															<div>
-																<p className="text-sm font-medium">
-																	{transaction.time ? transaction.time : new Date(transaction.date).toLocaleDateString()}
-																</p>
-																<p className="text-sm text-gray-500">
-																	{transaction.units} Units
-																</p>
+												{userData.transactions
+													.slice(0, 3)
+													.map(
+														(
+															transaction,
+															index
+														) => (
+															<div
+																key={index}
+																className="border-b pb-2 last:border-0"
+															>
+																<div className="flex justify-between items-start">
+																	<div>
+																		<p className="text-sm font-medium">
+																			{transaction.time
+																				? transaction.time
+																				: new Date(
+																						transaction.date
+																				  ).toLocaleDateString()}
+																		</p>
+																		<p className="text-sm text-gray-500">
+																			{
+																				transaction.units
+																			}{" "}
+																			Units
+																		</p>
+																	</div>
+																	<p className="font-bold">
+																		₦
+																		{transaction.amount.toFixed(
+																			2
+																		)}
+																	</p>
+																</div>
 															</div>
-															<p className="font-bold">₦{transaction.amount.toFixed(2)}</p>
-														</div>
-													</div>
-												))}
+														)
+													)}
 											</div>
 										) : (
 											<div className="text-center py-6">
 												<div className="text-gray-300 mb-2">
-													<Receipt size={48} className="mx-auto" />
+													<Receipt
+														size={48}
+														className="mx-auto"
+													/>
 												</div>
-												<p className="text-gray-500">No Recharge Yet</p>
+												<p className="text-gray-500">
+													No Recharge Yet
+												</p>
 											</div>
 										)}
 									</TabsContent>
-									
+
 									<TabsContent value="funding">
 										{userData.walletFunding.length > 0 ? (
 											<div className="space-y-3 max-h-64 overflow-y-auto">
-												{userData.walletFunding.slice(0, 3).map((funding, index) => (
-													<div key={index} className="border-b pb-2 last:border-0">
-														<div className="flex justify-between items-start">
-															<div>
-																<p className="text-sm font-medium">
-																	{funding.time ? funding.time : new Date(funding.date).toLocaleDateString()}
-																</p>
-																<p className="text-sm text-gray-500 truncate max-w-[200px]">
-																	{funding.account}
+												{userData.walletFunding
+													.slice(0, 3)
+													.map((funding, index) => (
+														<div
+															key={index}
+															className="border-b pb-2 last:border-0"
+														>
+															<div className="flex justify-between items-start">
+																<div>
+																	<p className="text-sm font-medium">
+																		{funding.time
+																			? funding.time
+																			: new Date(
+																					funding.date
+																			  ).toLocaleDateString()}
+																	</p>
+																	<p className="text-sm text-gray-500 truncate max-w-[200px]">
+																		{
+																			funding.account
+																		}
+																	</p>
+																</div>
+																<p className="font-bold">
+																	₦
+																	{funding.amount.toFixed(
+																		2
+																	)}
 																</p>
 															</div>
-															<p className="font-bold">₦{funding.amount.toFixed(2)}</p>
 														</div>
-													</div>
-												))}
+													))}
 											</div>
 										) : (
 											<div className="text-center py-6">
 												<div className="text-gray-300 mb-2">
-													<Receipt size={48} className="mx-auto" />
+													<Receipt
+														size={48}
+														className="mx-auto"
+													/>
 												</div>
-												<p className="text-gray-500">No Funds Transfer Yet</p>
+												<p className="text-gray-500">
+													No Funds Transfer Yet
+												</p>
 											</div>
 										)}
 									</TabsContent>
