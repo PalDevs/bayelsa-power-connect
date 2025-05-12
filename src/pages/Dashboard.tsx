@@ -147,7 +147,7 @@ const Dashboard = () => {
 							className="rounded-full"
 							onClick={() => navigate("/notifications")}
 						>
-							<BellDot size={24} />
+							<BellDot size={24} className="!w-6 !h-6" />
 							{userData.unreadNotifications > 0 && (
 								<span className="absolute top-0 right-0 flex h-4 w-4 items-center justify-center rounded-full bg-red-500 text-[10px] text-white">
 									{userData.unreadNotifications}
@@ -572,6 +572,19 @@ const Dashboard = () => {
 						</div>
 					</CardContent>
 				</Card>
+				{/* /report-outage */}
+				<div>
+					<Link to="/report-outage">
+						<ActionButton
+							fullWidth
+							variant="outline"
+							className="flex items-center justify-center space-x-2"
+						>
+							<AlertTriangle size={18} />
+							<span>Report Outage</span>
+						</ActionButton>
+					</Link>
+				</div>
 			</div>
 		</MobileLayout>
 	);
